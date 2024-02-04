@@ -1,5 +1,6 @@
 namespace OfficeFinder;
 using System.Text.RegularExpressions;
+using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 
@@ -26,8 +27,13 @@ public class WordSearcher : IWordSearcher
             MainDocumentPart mainDocument = wordDoc.MainDocumentPart ?? wordDoc.AddMainDocumentPart();
             Body body = mainDocument.Document.Body ?? new Body();
 
-            RegexOptions options = RegexOptions.Multiline;
-            MatchCollection AllMatchs = Regex.Matches(body.InnerText, regexPattern, options);
+            RegexOptions options = RegexOptions.Multiline| RegexOptions.IgnoreCase;
+            OpenXmlElementList elements = body.ChildElements;
+            string innerText = "";
+            foreach(OpenXmlElement element in elements){
+                innerText += element.InnerText + "\n";  // To separe differents paragraph
+            }
+            MatchCollection AllMatchs = Regex.Matches(innerText, regexPattern, options);
             count = AllMatchs.Count;
         }
         return new KeyValuePair<string, int>(this.filePath, count);
