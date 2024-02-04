@@ -58,7 +58,8 @@ public class CommandLineOPtionReader : ICommandLineOPtionReader
                 IEnumerable<FileInfo> files = dir.GetFiles("*.docx", SearchOption.AllDirectories);
                 foreach (FileInfo file in files)
                 {
-                    ListOfFile.Add(file.FullName);
+                    if(file.Name[0] != '~') // Temp file => not readable
+                        ListOfFile.Add(file.FullName);
                 }
             }
             else{
