@@ -8,17 +8,23 @@ namespace OfficeFinder;
 /// </summary>
 public class CommandLineOPtionReader : ICommandLineOPtionReader
 {
+    /*
+    private IConfiguration Configuration;
+    public CommandLineOPtionReader(IConfiguration configuration){
+        this.Configuration = configuration;
+    }
+    */
     public (string regex, List<string> listFile) ReadOption(string[] args)
     {
         var switchMappings = new Dictionary<string, string>()
     {
         // all option
-        { "--regex", "regex" },
-        { "-r", "regexAbbreviation"},
-        { "--file", "file" },
-        { "-f", "fileAbbreviation"},
-        { "--directory", "Directory" },
-        { "-d", "DirectoryAbbreviation"},
+        {"--regex","regex"},
+        {"-r","regexAbbreviation"},
+        {"--file","file"},
+        {"-f","fileAbbreviation"},
+        {"--directory","Directory"},
+        {"-d","DirectoryAbbreviation"},
     };
         var builder = new ConfigurationBuilder();
         builder.AddCommandLine(args, switchMappings);

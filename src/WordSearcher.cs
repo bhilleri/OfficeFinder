@@ -9,11 +9,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 /// </summary>
 public class WordSearcher : IWordSearcher
 {
-    private string filePath;
-    public WordSearcher(string filePath){
-        this.filePath = filePath;
-    }
-    public KeyValuePair<string, int> Search(string regexPattern)
+    public KeyValuePair<string, int> Search(string regexPattern, string filePath)
     {
         int count = 0;
         using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(filePath, false))
@@ -36,6 +32,6 @@ public class WordSearcher : IWordSearcher
             MatchCollection AllMatchs = Regex.Matches(innerText, regexPattern, options);
             count = AllMatchs.Count;
         }
-        return new KeyValuePair<string, int>(this.filePath, count);
+        return new KeyValuePair<string, int>(filePath, count);
     }
 }

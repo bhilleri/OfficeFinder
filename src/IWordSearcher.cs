@@ -16,5 +16,5 @@ public interface IWordSearcher{
     /// </returns>
     /// <exception cref="System.IO.IOException">File already open</exception>
     /// <exception cref="System.IO.FileFormatException">Temp file</exception>
-    public KeyValuePair<string, int> Search(string regexPattern);
+    public KeyValuePair<string, int> Search(string regexPattern, string filePath);
 }
