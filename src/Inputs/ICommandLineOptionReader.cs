@@ -1,4 +1,4 @@
-namespace OfficeFinder;
+namespace OfficeFinder.Inputs;
 
 /// <summary>
 /// In charge of retrieve options when the users enter the command

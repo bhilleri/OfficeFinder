@@ -1,4 +1,4 @@
-namespace OfficeFinder;
+namespace OfficeFinder.Searcher;
 using System.Text.RegularExpressions;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;

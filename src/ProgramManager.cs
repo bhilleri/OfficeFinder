@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using OfficeFinder.Inputs;
+using OfficeFinder.Searcher;
 
 namespace OfficeFinder;
 

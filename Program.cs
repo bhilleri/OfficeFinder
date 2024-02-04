@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OfficeFinder;
+using OfficeFinder.Inputs;
+using OfficeFinder.Searcher;
 
 // Initialization of the dependency injection
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);

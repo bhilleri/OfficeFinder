@@ -1,7 +1,7 @@
 
 using Microsoft.Extensions.Configuration;
 
-namespace OfficeFinder;
+namespace OfficeFinder.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="ICommandLineOPtionReader"/>
