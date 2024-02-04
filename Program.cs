@@ -1,12 +1,4 @@
-﻿using System.IO.Enumeration;
-using System.IO.Packaging;
-using System.Text.RegularExpressions;
-using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Wordprocessing;
-using Microsoft.Extensions.Configuration;
-
-namespace OfficeFinder;
+﻿namespace OfficeFinder;
 
 // Permet de rechercher une regex dans un fichier
 // Taper OfficeFinder --regex <pattern> --path <File>
@@ -33,9 +25,7 @@ public class Program
                 Console.WriteLine($"Erreur sur la lecture du fichier {filePath}, le fichier semble corrompue (Le fichier est-il correctement enregistré ?). exception : {ex.Message}");
                 Console.ForegroundColor = defaultColor;
             }
-
         }
-
     }
 }
 

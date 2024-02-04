@@ -12,6 +12,7 @@ public class CommandLineOPtionReader : ICommandLineOPtionReader
     {
         var switchMappings = new Dictionary<string, string>()
     {
+        // all option
         { "--regex", "regex" },
         { "-r", "regexAbbreviation"},
         { "--file", "file" },
@@ -36,10 +37,11 @@ public class CommandLineOPtionReader : ICommandLineOPtionReader
             throw new ArgumentException("Les arguments de la commande ne sont pas correctement saisies");
         }
 
+        //Initialization of list which will contain all the files in which to search
         List<string> ListOfFile = new List<string>();
 
         if (fileName is not null)
-        {
+        { // If the command precise to search in one file
             if (File.Exists(fileName) == false)
             {
                 Console.WriteLine($"Le fichier {fileName} n'a pas été trouvé");
@@ -51,7 +53,7 @@ public class CommandLineOPtionReader : ICommandLineOPtionReader
             }
         }
         else
-        {
+        { // If the command precise to search all files of one directory
             if (Directory.Exists(directory))
             {
                 DirectoryInfo dir = new DirectoryInfo(directory);
@@ -62,16 +64,13 @@ public class CommandLineOPtionReader : ICommandLineOPtionReader
                         ListOfFile.Add(file.FullName);
                 }
             }
-            else{
+            else{ // If directory doesn't exist
                 Console.WriteLine($"Le dossier {directory} n'a pas été trouvé");
                 throw new DirectoryNotFoundException($"Dossier {directory} inexistant");
             }
         }
 
-        // Check if file exist
-
         (string regex, List<string> listFile) result = (pattern, ListOfFile);
-
         return result;
     }
 }
