@@ -1,9 +1,9 @@
-namespace OfficeFinder;
+namespace OfficeFinder.Searcher;
 
 /// <summary>
 /// In charge of research the regex into the file
 /// </summary>
-public interface IWordSearcher{
+public interface ISearcher{
     /// <summary>
     /// Execute the regex request into a file
     /// </summary>

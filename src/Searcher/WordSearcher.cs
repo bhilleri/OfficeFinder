@@ -5,9 +5,9 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 
 /// <summary>
-/// <inheritdoc cref="IWordSearcher"/>
+/// <inheritdoc cref="ISearcher"/>
 /// </summary>
-public class WordSearcher : IWordSearcher
+public class WordSearcher : ISearcher
 {
     public KeyValuePair<string, int> Search(string regexPattern, string filePath)
     {

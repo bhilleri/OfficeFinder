@@ -1,6 +1,4 @@
 
-using Microsoft.Extensions.Configuration;
-
 namespace OfficeFinder.Inputs;
 
 /// <summary>
@@ -8,33 +6,18 @@ namespace OfficeFinder.Inputs;
 /// </summary>
 public class CommandLineOPtionReader : ICommandLineOPtionReader
 {
-    /*
-    private IConfiguration Configuration;
-    public CommandLineOPtionReader(IConfiguration configuration){
-        this.Configuration = configuration;
+    private string []Args;
+    private IOptionManager Options;
+    public CommandLineOPtionReader(IOptionManager option)
+    {
+        Options = option;
     }
-    */
-    public (string regex, List<string> listFile) ReadOption(string[] args)
+    public (string regex, List<string> listFile) ReadOption()
     {
-        var switchMappings = new Dictionary<string, string>()
-    {
-        // all option
-        {"--regex","regex"},
-        {"-r","regexAbbreviation"},
-        {"--file","file"},
-        {"-f","fileAbbreviation"},
-        {"--directory","Directory"},
-        {"-d","DirectoryAbbreviation"},
-    };
-        var builder = new ConfigurationBuilder();
-        builder.AddCommandLine(args, switchMappings);
-
-        var config = builder.Build();
-
         // Retrieve fileName and the pattern for the regex
-        string? fileName = config["file"] ?? config["fileAbbreviation"];
-        string? pattern = config["regex"] ?? config["regexAbbreviation"];
-        string? directory = config["directory"] ?? config["directoryAbbreviation"];
+        string? fileName = Options.File;
+        string? pattern = Options.Regex;
+        string? directory = Options.Directory;
 
         // Check if parameters are not null
         if (pattern is null || !(fileName is null ^ directory is null))

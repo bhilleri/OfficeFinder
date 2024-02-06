@@ -6,15 +6,15 @@ namespace OfficeFinder;
 
 public class ProgramManager : IProgramManager
 {
-    private readonly IWordSearcher WordSearcher;
+    private readonly ISearcher WordSearcher;
     private readonly ICommandLineOPtionReader CommandInterpreter;
     public ProgramManager(IServiceProvider hostProvider){
-        this.WordSearcher = hostProvider.GetRequiredService<IWordSearcher>()!;
+        this.WordSearcher = hostProvider.GetRequiredService<ISearcher>()!;
         this.CommandInterpreter = hostProvider.GetRequiredService<ICommandLineOPtionReader>()!;
     }
-    public void Start(string[] args)
+    public void Start()
     {
-        (string regex, List<string> listFile) patternListFile = CommandInterpreter.ReadOption(args);
+        (string regex, List<string> listFile) patternListFile = CommandInterpreter.ReadOption();
         foreach(string filePath in patternListFile.listFile){
             try{
                 KeyValuePair<string, int> NumberOfOccurence = WordSearcher.Search(patternListFile.regex, filePath);
