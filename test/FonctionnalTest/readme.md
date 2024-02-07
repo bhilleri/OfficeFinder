@@ -10,4 +10,6 @@ la regex utilisé pour ce test est "\btest\b"
 |rocade de bordeaux|0|1|0|☑|
 |test wikipédia.docx|22|29|24|☒ le mot test est présent dans des liens non affichés sur word|
 |test.docx|1|1|1|☑|
+|histoire de france.docx|0|0|0|☑|
+|histoire de l'angleterre.docx|0|0|0|☑|
 |dossier/test_dossier.docx| 1 | 1 |1|☑|

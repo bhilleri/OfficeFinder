@@ -3,15 +3,22 @@ using Microsoft.Extensions.Configuration;
 
 namespace OfficeFinder.Inputs;
 
+/// <summary>
+/// <inheritdoc cref="IOptionManager"/>
+/// </summary>
 public class OptionManager :IOptionManager
 {
     private const string REGEXKEY = "regex";
     private const string REGEXKEYABBREVIATION = "regexAbbreviation";
     private const string FILE = "file";
     private const string FILEABBREVIATION = "fileAbbreviation";
-    private const string DIRECTORY = "Directory";
-    private const string DIRECTORYABBREVIATION = "DirectoryAbbreviation";
-    private Dictionary<string, string> OptionsDefinition = new Dictionary<string, string>(){
+    private const string DIRECTORY = "directory";
+    private const string DIRECTORYABBREVIATION = "directoryAbbreviation";
+
+    /// <summary>
+    /// Dictionary that contains the correspondance between options write by the users and option in the code
+    /// </summary>
+    private readonly Dictionary<string, string> OptionsDefinition = new Dictionary<string, string>(){
         {"--regex", REGEXKEY},
         {"-r",REGEXKEYABBREVIATION},
         {"--file",FILE},
@@ -20,6 +27,9 @@ public class OptionManager :IOptionManager
         {"-d",DIRECTORYABBREVIATION},
     };
     
+    /// <summary>
+    /// Contains all options define by the user
+    /// </summary>
     private IConfigurationRoot UserOption;
     public OptionManager(string[] args) {
         var builder = new ConfigurationBuilder();
