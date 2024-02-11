@@ -1,47 +1,54 @@
-using System.ComponentModel;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using OfficeFinder.Inputs.CommandLine;
+using OfficeFinder.Inputs.FilesTools;
 
 namespace OfficeFinder.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IOptionManager"/>
 /// </summary>
-public class OptionManager :IOptionManager
+public class OptionManger : IOptionManager
 {
-    private const string REGEXKEY = "regex";
-    private const string REGEXKEYABBREVIATION = "regexAbbreviation";
-    private const string FILE = "file";
-    private const string FILEABBREVIATION = "fileAbbreviation";
-    private const string DIRECTORY = "directory";
-    private const string DIRECTORYABBREVIATION = "directoryAbbreviation";
-
-    /// <summary>
-    /// Dictionary that contains the correspondance between options write by the users and option in the code
-    /// </summary>
-    private readonly Dictionary<string, string> OptionsDefinition = new Dictionary<string, string>(){
-        {"--regex", REGEXKEY},
-        {"-r",REGEXKEYABBREVIATION},
-        {"--file",FILE},
-        {"-f",FILEABBREVIATION},
-        {"--directory", DIRECTORY},
-        {"-d",DIRECTORYABBREVIATION},
-    };
-    
-    /// <summary>
-    /// Contains all options define by the user
-    /// </summary>
-    private IConfigurationRoot UserOption;
-    public OptionManager(string[] args) {
-        var builder = new ConfigurationBuilder();
-        builder.AddCommandLine(args, OptionsDefinition);
-        UserOption = builder.Build();
+    private readonly IInputErrorManager ErrorManager;
+    private readonly IFileFinderManager FileSearcher;
+    private readonly IOptionProvider Options;
+    private readonly ILogger Logger;
+    private readonly IHelper Helper;
+    private const string ARGUMENTISMISSING = "Information(s) manquante(s) pour éxécuter le code, nécessite au minimum le path et la regex";
+    public OptionManger(IOptionProvider option, IFileFinderManager fileSearcher, ILogger<OptionManger> logger, IInputErrorManager errorManager, IHelper helper)
+    {
+        this.Options = option;
+        this.FileSearcher = fileSearcher;
+        this.Logger = logger;
+        this.ErrorManager = errorManager;
+        this.Helper = helper;
     }
+    public (string regex, List<string> listFile) ReadOption()
+    {
+        // Retrieve fileName and the pattern for the regex
+        string? path = Options.Path;
+        string? regex = Options.Regex;
+        bool help = Options.HelpRequired;
 
-#pragma warning disable CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
-    public string? Regex => this.UserOption.GetValue<string>(REGEXKEY) ?? this.UserOption.GetValue<string>(REGEXKEYABBREVIATION);
+        if(help == true){
+            Helper.Help();
+            return (null, null);
+        }
+        // Check if parameters are not null
+        if (regex is null || path is null )
+        {
+            Logger.LogError($"""{ARGUMENTISMISSING} : {(regex is null ? nameof(regex) : String.Empty)} {(path is null ? nameof(path) :  String.Empty)}""");
+            if(path is null)
+                this.ErrorManager.PathMissing();
+            if (regex is null)
+                this.ErrorManager.RegexIsMissing();
+            Helper.Help();
+            throw new ArgumentException(ARGUMENTISMISSING);
+        }
+        // Find files
+        List<string> ListOfFile = FileSearcher.GetFiles(path);
 
-    public string? File => this.UserOption.GetValue<string?>(FILE)?? this.UserOption.GetValue<string?>(FILEABBREVIATION);
-    public string? Directory => this.UserOption.GetValue<string?>(DIRECTORY)?? this.UserOption.GetValue<string?>(DIRECTORYABBREVIATION);
-#pragma warning restore CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
-};
-
+        (string regex, List<string> listFile) result = (regex, ListOfFile);
+        return result;
+    }
+}

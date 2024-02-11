@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Bibliography;
 using Microsoft.Extensions.DependencyInjection;
 using OfficeFinder.Data;
 using OfficeFinder.Inputs;
@@ -10,9 +11,9 @@ public class ProgramManager : IProgramManager
 {
     private readonly IOccurenceStore Occurences;
     private readonly ISearcher WordSearcher;
-    private readonly ICommandLineOPtionReader CommandInterpreter;
+    private readonly IOptionManager CommandInterpreter;
     private IOutput outputManager;
-    public ProgramManager(ISearcher wordSearcher, ICommandLineOPtionReader commandInterpreter, IOccurenceStore occurences, IOutput outputManager){
+    public ProgramManager(ISearcher wordSearcher, IOptionManager commandInterpreter, IOccurenceStore occurences, IOutput outputManager){
         this.WordSearcher = wordSearcher;
         this.CommandInterpreter = commandInterpreter;
         this.Occurences = occurences;
@@ -20,8 +21,11 @@ public class ProgramManager : IProgramManager
     }
     public void Start()
     {
-
+        try{
         (string regex, List<string> listFile) patternListFile = CommandInterpreter.ReadOption();
+        if(patternListFile.regex is null || patternListFile.listFile is null){
+            return;
+        }
         foreach(string filePath in patternListFile.listFile){
             try{
                 Occurences.Add(WordSearcher.Search(patternListFile.regex, filePath));
@@ -36,5 +40,10 @@ public class ProgramManager : IProgramManager
             }
         }
         this.outputManager.Push();
+        }
+        catch(ArgumentException ex){
+
+        }
+
     }
 }

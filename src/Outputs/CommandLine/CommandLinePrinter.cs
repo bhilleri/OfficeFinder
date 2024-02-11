@@ -22,7 +22,15 @@ public class CommandLinePrinter : IOutput{
 
     public void Push()
     {
+        int nbResultWithMoreThan0Occurence = 0;
+        foreach (KeyValuePair<string, int> occurence in Occurences.OccurrencesPerFileList) {
+            if (occurence.Value == 0)
+                break;
+            nbResultWithMoreThan0Occurence++;
+        }
         // Print occurences
+        Console.WriteLine($"nomnre de fichier(s) analysé(s) : {Occurences.OccurrencesPerFileList.Count}");
+        Console.WriteLine($"nombre de fichier(s) avec au moins une occurence : {nbResultWithMoreThan0Occurence}");
         foreach(KeyValuePair<string, int> occurence in Occurences.OccurrencesPerFileList){
             if (occurence.Value == 0)
                 break;

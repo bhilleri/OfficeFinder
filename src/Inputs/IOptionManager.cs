@@ -1,19 +1,13 @@
 namespace OfficeFinder.Inputs;
+
 /// <summary>
-// Object that contains and manage all options selected by the User
+/// In charge of retrieve options when the users enter the command
 /// </summary>
-public interface IOptionManager
-{
+public interface IOptionManager{
     /// <summary>
-    /// The directory where the search should begin
+    /// Retrieve options when the user enter the command
     /// </summary>
-    public string Directory { get; }
-    /// <summary>
-    /// The file targeted by the User
-    /// </summary>
-    public string File { get; }
-    /// <summary>
-    /// The regex define by the User
-    /// </summary>
-    public string Regex{ get; }
+    /// <param name="args">List of args provided to the program</param>
+    /// <returns></returns>
+    (string regex, List<string> listFile) ReadOption();
 }
