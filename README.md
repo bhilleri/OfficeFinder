@@ -33,11 +33,11 @@ La séléction des options (multiligne, case, ...) n'est pas encore configurable
 
 ## Utilisation de l'outil
 ### Rechercher dans un fichier unique :
-- forme longue : `OfficeFinder.exe --regex <regex> --file <path>`
-- forme abbrégée : `OfficeFinder.exe -r <regex> -f <path>`
+- forme longue : `OfficeFinder.exe --regex <regex> --path <filePath>`
+- forme abbrégée : `OfficeFinder.exe -r <regex> -p <filePath>`
 ### Rechercher dans l'ensemble des fichiers d'un répertoire
-- forme longue : `OfficeFinder.exe --regex <regex> --directory <path>`
-- forme abbrégée : `OfficeFinder.exe -r <regex> -d <directory>`
+- forme longue : `OfficeFinder.exe --regex <regex> --path <DirectoryPath>`
+- forme abbrégée : `OfficeFinder.exe -r <regex> -p <DirectoryPath>`
 
 ou : OfficeFinder.exe -r <regex> -p <path>
 
@@ -51,10 +51,16 @@ Pour créer des regex vous pouvez utiliser le site https://regex101.com/
 ## example
 
 - recherche de mot :
-OfficeFinder.exe bonjour ./documentWord.docx
+    - `OfficeFinder.exe --regex "bonjour" --path ./documentWord.docx`
+    - `OfficeFinder.exe --regex "bonjour" --path ./directory`
+    - `OfficeFinder.exe --regex "bonjour"`
 
 - recherche de phrase :
-OfficeFinder.exe "Ceci est ma recherche" ./documentWord.docx
+    - `OfficeFinder.exe --regex "Ceci est ma recherche" --path ./documentWord.docx`
+    - `OfficeFinder.exe --regex "Ceci est ma recherche" --path ./directory`
+    - `OfficeFinder.exe --regex "Ceci est ma recherche"`
 
 - recherche avec une regex plus compliqué 
-OfficeFinder.exe "Ceci est ma recherche" ./documentWord.docx
+    - `OfficeFinder.exe --regex "Ceci est ma recherche" --path ./documentWord.docx`
+    - `OfficeFinder.exe --regex "Ceci est ma recherche" --path ./directory`
+    - `OfficeFinder.exe --regex "Ceci est ma recherche"`
