@@ -9,5 +9,5 @@ public interface IOptionManager{
     /// </summary>
     /// <param name="args">List of args provided to the program</param>
     /// <returns></returns>
-    (string regex, List<string> listFile) ReadOption();
+    (string? regex, List<string>? listFile) ReadOption();
 }

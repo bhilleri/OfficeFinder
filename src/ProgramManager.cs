@@ -22,7 +22,7 @@ public class ProgramManager : IProgramManager
     public void Start()
     {
         try{
-        (string regex, List<string> listFile) patternListFile = CommandInterpreter.ReadOption();
+        (string? regex, List<string>? listFile) patternListFile = CommandInterpreter.ReadOption();
         if(patternListFile.regex is null || patternListFile.listFile is null){
             return;
         }
@@ -41,8 +41,8 @@ public class ProgramManager : IProgramManager
         }
         this.outputManager.Push();
         }
-        catch(ArgumentException ex){
-
+        catch(ArgumentException){
+            // already be logged
         }
 
     }

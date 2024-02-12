@@ -58,14 +58,14 @@ public class CommandLineOptionStore : ICommandLineOptionStore
 
     public CommandLineOption GetOption(string name)
     {
-        CommandLineOption result = null;
+        CommandLineOption? result = null;
         foreach(CommandLineOption option in _listOptions){
             if(name == option.OptionName){
                 result = option;
                 break;
             }
         }
-        if (result == null){
+        if (result is null){
             string errorMessage = $"L'option {name} n'est pas définie dans la liste des options disponibles";
             _logger.LogError(errorMessage);
             throw new ArgumentNullException(errorMessage);

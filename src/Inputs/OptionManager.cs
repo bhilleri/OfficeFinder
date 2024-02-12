@@ -23,7 +23,7 @@ public class OptionManger : IOptionManager
         this.ErrorManager = errorManager;
         this.Helper = helper;
     }
-    public (string regex, List<string> listFile) ReadOption()
+    public (string? regex, List<string>? listFile) ReadOption()
     {
         // Retrieve fileName and the pattern for the regex
         string? path = Options.Path;
@@ -48,7 +48,7 @@ public class OptionManger : IOptionManager
         // Find files
         List<string> ListOfFile = FileSearcher.GetFiles(path);
 
-        (string regex, List<string> listFile) result = (regex, ListOfFile);
+        (string? regex, List<string>? listFile) result = (regex, ListOfFile);
         return result;
     }
 }
