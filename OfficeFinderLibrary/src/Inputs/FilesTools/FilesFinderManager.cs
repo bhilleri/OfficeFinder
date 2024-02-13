@@ -2,7 +2,7 @@
 using DocumentFormat.OpenXml.Bibliography;
 using Microsoft.Extensions.FileProviders;
 
-namespace OfficeFinder.Inputs.FilesTools;
+namespace OfficeFinderLibrary.Inputs.FilesTools;
 
 public class FileFinderManager : IFileFinderManager
 {

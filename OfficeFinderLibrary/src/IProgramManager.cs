@@ -1,4 +1,4 @@
-namespace OfficeFinder;
+namespace OfficeFinderLibrary;
 
 public interface IProgramManager
 {

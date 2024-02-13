@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using OfficeFinder;
-using OfficeFinder.Data;
-using OfficeFinder.Inputs;
+using OfficeFinderLibrary;
+using OfficeFinderLibrary.Data;
+using OfficeFinderLibrary.Inputs;
 using OfficeFinderCommandLine.Inputs;
-using OfficeFinder.Inputs.FilesTools;
-using OfficeFinder.Output;
+using OfficeFinderLibrary.Inputs.FilesTools;
+using OfficeFinderLibrary.Output;
 using OfficeFinderCommandLine.Output;
-using OfficeFinder.Searcher;
+using OfficeFinderLibrary.Searcher;
 
 // Initialization of the dependency injection
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();

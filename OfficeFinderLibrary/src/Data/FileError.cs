@@ -1,4 +1,4 @@
-namespace OfficeFinder.Data;
+namespace OfficeFinderLibrary.Data;
 
 /// <summary>
 /// Structure used to store data about one error encoutered during the reading phase of the program

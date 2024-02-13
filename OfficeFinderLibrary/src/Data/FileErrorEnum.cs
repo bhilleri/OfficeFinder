@@ -1,4 +1,4 @@
-namespace OfficeFinder.Data;
+namespace OfficeFinderLibrary.Data;
 
 public enum FileErrorEnum{
     FileIsAlreadyOpen,

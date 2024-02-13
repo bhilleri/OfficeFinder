@@ -1,4 +1,4 @@
-namespace OfficeFinder.Output;
+namespace OfficeFinderLibrary.Output;
 
 /// <summary>
 /// Interface used to call IHM part for the presentation of the result

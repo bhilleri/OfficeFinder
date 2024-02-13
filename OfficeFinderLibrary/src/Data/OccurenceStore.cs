@@ -1,5 +1,5 @@
 
-namespace OfficeFinder.Data;
+namespace OfficeFinderLibrary.Data;
 
 /// <summary>
 /// <inheritdoc cref="IOccurenceStore"/>

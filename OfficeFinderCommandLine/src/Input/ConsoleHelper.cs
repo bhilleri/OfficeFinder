@@ -1,4 +1,4 @@
-using OfficeFinder.Inputs;
+using OfficeFinderLibrary.Inputs;
 
 namespace OfficeFinderCommandLine.Inputs;
 

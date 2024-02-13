@@ -1,4 +1,4 @@
-namespace OfficeFinder.Searcher;
+namespace OfficeFinderLibrary.Searcher;
 
 /// <summary>
 /// In charge of research the regex into the file

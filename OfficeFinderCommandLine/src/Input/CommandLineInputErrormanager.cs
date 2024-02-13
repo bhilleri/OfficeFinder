@@ -1,6 +1,6 @@
 namespace OfficeFinderCommandLine.Inputs;
 
-using OfficeFinder.Inputs;
+using OfficeFinderLibrary.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IInputErrorManager"/>

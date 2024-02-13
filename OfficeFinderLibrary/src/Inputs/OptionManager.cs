@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Logging;
-using OfficeFinder.Inputs;
-using OfficeFinder.Inputs.FilesTools;
+using OfficeFinderLibrary.Inputs;
+using OfficeFinderLibrary.Inputs.FilesTools;
 
-namespace OfficeFinder.Inputs;
+namespace OfficeFinderLibrary.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IOptionManager"/>

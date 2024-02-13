@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs;
+namespace OfficeFinderLibrary.Inputs;
 /// <summary>
 // Object that contains and manage all options selected by the User
 /// </summary>

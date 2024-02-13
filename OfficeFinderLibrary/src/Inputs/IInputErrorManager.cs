@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs;
+namespace OfficeFinderLibrary.Inputs;
 /// <summary>
 /// Called to notify the user that a prolem has occured
 /// </summary>

@@ -1,4 +1,4 @@
-namespace OfficeFinder.Data;
+namespace OfficeFinderLibrary.Data;
 /// <summary>
 /// In charge of store all results from files which includes :
 /// <list type="bullet">

@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs.FilesTools;
+namespace OfficeFinderLibrary.Inputs.FilesTools;
 
 public interface IFileFilter{
     List<FileInfo> FilterValidFiles(List<FileInfo> fileToCheck);

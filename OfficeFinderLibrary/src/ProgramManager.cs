@@ -1,11 +1,11 @@
 using DocumentFormat.OpenXml.Bibliography;
 using Microsoft.Extensions.DependencyInjection;
-using OfficeFinder.Data;
-using OfficeFinder.Inputs;
-using OfficeFinder.Output;
-using OfficeFinder.Searcher;
+using OfficeFinderLibrary.Data;
+using OfficeFinderLibrary.Inputs;
+using OfficeFinderLibrary.Output;
+using OfficeFinderLibrary.Searcher;
 
-namespace OfficeFinder;
+namespace OfficeFinderLibrary;
 
 public class ProgramManager : IProgramManager
 {

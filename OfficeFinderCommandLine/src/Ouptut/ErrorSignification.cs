@@ -1,4 +1,4 @@
-using OfficeFinder.Data;
+using OfficeFinderLibrary.Data;
 
 namespace OfficeFinderCommandLine.Output;
 

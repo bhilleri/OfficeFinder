@@ -1,5 +1,5 @@
 
-namespace OfficeFinder.Inputs.FilesTools;
+namespace OfficeFinderLibrary.Inputs.FilesTools;
 
 public class FileFilter : IFileFilter
 {

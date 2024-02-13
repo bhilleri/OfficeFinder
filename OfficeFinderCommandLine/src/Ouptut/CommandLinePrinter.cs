@@ -1,5 +1,5 @@
-using OfficeFinder.Data;
-using OfficeFinder.Output;
+using OfficeFinderLibrary.Data;
+using OfficeFinderLibrary.Output;
 
 namespace OfficeFinderCommandLine.Output;
 
