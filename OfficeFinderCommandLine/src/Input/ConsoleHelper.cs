@@ -1,7 +1,6 @@
-using DocumentFormat.OpenXml.Drawing.Diagrams;
-using DocumentFormat.OpenXml.Office.PowerPoint.Y2021.M06.Main;
+using OfficeFinder.Inputs;
 
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IHelper"/>

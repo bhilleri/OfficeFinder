@@ -1,6 +1,6 @@
 using OfficeFinder.Data;
 
-namespace OfficeFinder.Output.CommandLine;
+namespace OfficeFinderCommandLine.Output;
 
 /// <summary>
 /// Class used to give a signification for the error code store in the the FileErrorEnum

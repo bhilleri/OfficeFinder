@@ -1,6 +1,6 @@
-using DocumentFormat.OpenXml.Drawing;
+namespace OfficeFinderCommandLine.Inputs;
 
-namespace OfficeFinder.Inputs.CommandLine;
+using OfficeFinder.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IInputErrorManager"/>

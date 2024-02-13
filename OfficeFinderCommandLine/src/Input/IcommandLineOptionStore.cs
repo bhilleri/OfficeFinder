@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 /// <summary>
 /// <para>Contains the definition of all command line applicaiton option</para>
 /// <para>This object is also used to save option define by the user</para>

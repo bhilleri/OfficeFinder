@@ -1,4 +1,6 @@
-namespace OfficeFinder.Inputs.CommandLine;
+using OfficeFinder.Inputs;
+
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IOptionProvider"/>

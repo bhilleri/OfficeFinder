@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinder.Inputs;
 
 /// <summary>
 /// Ask to the HMI to print the helper

@@ -4,10 +4,10 @@ using Microsoft.Extensions.Logging;
 using OfficeFinder;
 using OfficeFinder.Data;
 using OfficeFinder.Inputs;
-using OfficeFinder.Inputs.CommandLine;
+using OfficeFinderCommandLine.Inputs;
 using OfficeFinder.Inputs.FilesTools;
 using OfficeFinder.Output;
-using OfficeFinder.Output.CommandLine;
+using OfficeFinderCommandLine.Output;
 using OfficeFinder.Searcher;
 
 // Initialization of the dependency injection

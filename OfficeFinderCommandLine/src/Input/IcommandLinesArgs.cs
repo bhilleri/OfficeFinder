@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// Contains all arguments given by the user to the program.

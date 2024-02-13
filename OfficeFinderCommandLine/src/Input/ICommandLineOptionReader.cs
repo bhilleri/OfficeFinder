@@ -1,4 +1,4 @@
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// Retrieve options define by user and save them inside the <see cref="ICommandLineOptionStore"/> 

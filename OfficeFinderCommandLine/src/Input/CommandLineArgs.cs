@@ -1,6 +1,4 @@
-using System.Reflection.Metadata.Ecma335;
-
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="ICommandLineArgs"/>

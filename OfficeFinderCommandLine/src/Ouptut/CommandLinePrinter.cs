@@ -1,6 +1,7 @@
 using OfficeFinder.Data;
+using OfficeFinder.Output;
 
-namespace OfficeFinder.Output.CommandLine;
+namespace OfficeFinderCommandLine.Output;
 
 /// <summary>
 /// Class used to print the result on the console

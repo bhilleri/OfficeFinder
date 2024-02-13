@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/OfficeFinder.csproj"
+                "${workspaceFolder}/OfficeFinderCommandLine/OfficeFinderCommandLine.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

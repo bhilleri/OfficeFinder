@@ -1,9 +1,6 @@
-
-using Castle.Core.Logging;
-using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Extensions.Logging;
 
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="ICommandLineOptionStore"/>

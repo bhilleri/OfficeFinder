@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Logging;
-using OfficeFinder.Inputs.CommandLine;
+using OfficeFinder.Inputs;
 using OfficeFinder.Inputs.FilesTools;
 
 namespace OfficeFinder.Inputs;

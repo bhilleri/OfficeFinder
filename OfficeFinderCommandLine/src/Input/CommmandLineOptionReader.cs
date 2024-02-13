@@ -1,7 +1,4 @@
-using System.ComponentModel;
-using Microsoft.Extensions.Configuration;
-
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// <inheritdoc cref="IOptionProvider"/>

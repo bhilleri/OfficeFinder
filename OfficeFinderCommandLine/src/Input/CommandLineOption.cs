@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace OfficeFinder.Inputs.CommandLine;
+namespace OfficeFinderCommandLine.Inputs;
 
 /// <summary>
 /// Define one option for the command line application
