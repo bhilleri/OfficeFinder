@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeFinderCommandLine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeFinderLibrary", "OfficeFinderLibrary\OfficeFinderLibrary.csproj", "{6D9033E1-CFB1-4857-9C22-D31738892729}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{640F0BEE-15CC-4E0B-B5AD-299E474C0651}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{65D127BF-477B-4BC8-88DF-46500E6BDB6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeFinderLibraryTest", "test\UnitTest\OfficeFinderLibraryTest\OfficeFinderLibraryTest.csproj", "{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeFinderCommandLineTest", "test\UnitTest\OfficeFinderCommandLineTest\OfficeFinderCommandLineTest.csproj", "{BB8EBC16-6A96-453F-8011-E529B366367C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +32,18 @@ Global
 		{6D9033E1-CFB1-4857-9C22-D31738892729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D9033E1-CFB1-4857-9C22-D31738892729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D9033E1-CFB1-4857-9C22-D31738892729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB8EBC16-6A96-453F-8011-E529B366367C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB8EBC16-6A96-453F-8011-E529B366367C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB8EBC16-6A96-453F-8011-E529B366367C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB8EBC16-6A96-453F-8011-E529B366367C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65D127BF-477B-4BC8-88DF-46500E6BDB6C} = {640F0BEE-15CC-4E0B-B5AD-299E474C0651}
+		{530DA3B7-768A-4CBB-ADE3-ADC987E22F4C} = {65D127BF-477B-4BC8-88DF-46500E6BDB6C}
+		{BB8EBC16-6A96-453F-8011-E529B366367C} = {65D127BF-477B-4BC8-88DF-46500E6BDB6C}
 	EndGlobalSection
 EndGlobal
