@@ -63,9 +63,7 @@ public class CommandLineOptionStore : ICommandLineOptionStore
             }
         }
         if (result is null){
-            string errorMessage = $"L'option {name} n'est pas définie dans la liste des options disponibles";
-            _logger.LogError(errorMessage);
-            throw new ArgumentNullException(errorMessage);
+            throw new ArgumentNullException(name);
         }
         return result;
     }

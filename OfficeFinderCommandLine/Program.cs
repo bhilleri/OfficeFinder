@@ -9,11 +9,15 @@ using OfficeFinderLibrary.Inputs.FilesTools;
 using OfficeFinderLibrary.Output;
 using OfficeFinderCommandLine.Output;
 using OfficeFinderLibrary.Searcher;
+using OfficeFinderCommandLine;
+using OfficeFinderCommandLine.src;
 
 // Initialization of the dependency injection
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();
 
 builder.Services.AddLogging(builder => builder.AddConsole());
+builder.Services.AddSingleton<IConsoleWrapper,ConsoleWrapper>();
+builder.Services.AddSingleton<IEventIDOfficeFinderCommandLIne, EventIDOfficeFInderCommandLine>();
 builder.Services.AddSingleton<ICommandLineArgs>(new CommandLineArgs(args));
 builder.Services.AddSingleton<ICommandLineOptionStore, CommandLineOptionStore>();
 builder.Services.AddSingleton<IHelper, ConsoleHelper>();

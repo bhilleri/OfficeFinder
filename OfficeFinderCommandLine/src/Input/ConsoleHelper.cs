@@ -1,3 +1,4 @@
+using OfficeFinderCommandLine.src;
 using OfficeFinderLibrary.Inputs;
 
 namespace OfficeFinderCommandLine.Inputs;
@@ -16,8 +17,10 @@ public class ConsoleHelper : IHelper
     private int INITIALMARGE = 10;
     private Dictionary<string,string> Examples;
     private ICommandLineOptionStore _optionStore;
+    private IConsoleWrapper consoleWrapper;
 
-    public ConsoleHelper(ICommandLineOptionStore optionStore){
+    public ConsoleHelper(ICommandLineOptionStore optionStore, IConsoleWrapper consoleWrapper){
+        this.consoleWrapper = consoleWrapper;
         _optionStore = optionStore;
         this.Examples = new Dictionary<string, string>{
             {$"""OfficeFinder {_optionStore.GetOption(_optionStore.REGEXOPTIONNAME)!.OptionCode} "regex" """, """Recherche "regex" dans le répertoire courant""" },
@@ -28,11 +31,11 @@ public class ConsoleHelper : IHelper
  
     public void Help()
     {
-        Console.WriteLine($"\n{NAMEOFSOFTWARE}");
-        Console.WriteLine();
-        Console.WriteLine($"{DESCRIPTIONTITLE} : {DESCRIPTION}");
-        Console.WriteLine();
-        Console.WriteLine($"{OPTIONTITLE} : ");
+        consoleWrapper.WriteLine($"\n{NAMEOFSOFTWARE}");
+        consoleWrapper.WriteLine();
+        consoleWrapper.WriteLine($"{DESCRIPTIONTITLE} : {DESCRIPTION}");
+        consoleWrapper.WriteLine();
+        consoleWrapper.WriteLine($"{OPTIONTITLE} : ");
 
         int maxSizeOptionCode = 0;
         int maxSizeAbbreviationCode = 0;
@@ -49,14 +52,14 @@ public class ConsoleHelper : IHelper
             {
                 int currentMarge = 0;
                 SetPointerPosition(currentMarge = this.INITIALMARGE);
-                Console.Write(option.OptionCode?? "");  
+                consoleWrapper.Write(option.OptionCode?? "");  
                 SetPointerPosition(currentMarge += maxSizeOptionCode + this.MARGE);
-                Console.Write(option.AbbreviationCode?? "");  
+                consoleWrapper.Write(option.AbbreviationCode?? "");  
                 SetPointerPosition(currentMarge += this.MARGE + maxSizeAbbreviationCode);
-                Console.WriteLine(option.Description);
+                consoleWrapper.WriteLine(option.Description);
             }
         }
-        Console.WriteLine($"{this.EXAMPLETITLE}\n");
+        consoleWrapper.WriteLine($"{this.EXAMPLETITLE}\n");
 
         int maxSizeExample = 0;
         foreach(KeyValuePair<string, string> example in this.Examples){
@@ -67,23 +70,23 @@ public class ConsoleHelper : IHelper
         foreach(KeyValuePair<string, string> example in this.Examples){
                 int currentMarge = 0;
                 SetPointerPosition(currentMarge +=INITIALMARGE);
-                Console.Write($""" > {example.Key}""");  
+                consoleWrapper.Write($""" > {example.Key}""");  
                 SetPointerPosition(currentMarge += maxSizeExample + this.MARGE);
-                Console.Write(example.Value);
-            Console.Write("\n");
+                consoleWrapper.Write(example.Value);
+            consoleWrapper.Write("\n");
         }
 
     }
 
     private void SetPointerPosition(int value){
         try{
-            Console.SetCursorPosition(value, Console.CursorTop);
+            consoleWrapper.SetCursorPosition(value, Console.CursorTop);
         }
         catch(ArgumentOutOfRangeException){
-            Console.Write("\t");
+            consoleWrapper.Write("\t");
         }
         catch(IOException){
-            Console.Write("\t");
+            consoleWrapper.Write("\t");
         }
     }
 }

@@ -36,7 +36,8 @@ public class CommandLineOption{
     public string OptionCode => _optionCode;
     private bool _needed;
     public bool Needed => _needed;
-    public string? _defaultValue;
+    private string? _defaultValue;
+    public string? DefaultValue => _defaultValue;
     private string? _value;
     public string? Value{
         get => this._value;

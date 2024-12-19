@@ -1,5 +1,6 @@
 namespace OfficeFinderCommandLine.Inputs;
 
+using OfficeFinderCommandLine.src;
 using OfficeFinderLibrary.Inputs;
 
 /// <summary>
@@ -8,7 +9,10 @@ using OfficeFinderLibrary.Inputs;
 public class CommandLineInputErrorManager : IInputErrorManager
 {
     ICommandLineOptionStore _optionStore;
-    public CommandLineInputErrorManager(ICommandLineOptionStore optionStore){
+    IConsoleWrapper consoleWrapper;
+    public CommandLineInputErrorManager(ICommandLineOptionStore optionStore, IConsoleWrapper consoleWrapper)
+    {
+        this.consoleWrapper = consoleWrapper;
         _optionStore = optionStore;
     }
     public void FileNotFound(string path)
@@ -27,8 +31,8 @@ public class CommandLineInputErrorManager : IInputErrorManager
     }
 
     private void PrintError(string errorMessage){
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(errorMessage);
-        Console.ResetColor();
+        consoleWrapper.ForegroundColor = ConsoleColor.Red;
+        consoleWrapper.WriteLine(errorMessage);
+        consoleWrapper.ResetColor();
     }
 }
