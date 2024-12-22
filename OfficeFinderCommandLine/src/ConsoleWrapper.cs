@@ -14,7 +14,6 @@ namespace OfficeFinderCommandLine.src
             set => Console.ForegroundColor = value;
         }
 
-        aaa
         public void ResetColor()
         {
             Console.ResetColor();
