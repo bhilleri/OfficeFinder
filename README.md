@@ -1,3 +1,5 @@
+[![.NET Core Desktop](https://github.com/bhilleri/OfficeFinder/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/bhilleri/OfficeFinder/actions/workflows/dotnet-desktop.yml)
+
 # OffcieFinder
 Permet de rechercher des informations au sein d'un ou de plusieurs fichiers word.
 
